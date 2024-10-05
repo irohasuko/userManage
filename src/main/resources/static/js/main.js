@@ -20,7 +20,7 @@ $(document).ready(function() {
                             <td>${user.userRole}</td>
                             <td>${user.departmentName}</td>
                             <td>
-                                <button class="button updateBtn" data-id="${user.id}">更新</button>
+                                <button class="button updateBtn">更新</button>
                             </td>
                             <td><input type="checkbox" class="user-checkbox" /></td>
                             <td>
