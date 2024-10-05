@@ -6,8 +6,10 @@ $(document).ready(function() {
 			type: 'GET', // HTTPメソッド
 			dataType: 'json', // 期待するデータ形式
 			success: function(data) {
+				
 				// テーブルのtbodyにユーザー情報を追加
 				const userTableBody = $('#userTable tbody');
+				// 一旦現状のテーブル情報をすべて削除
 				userTableBody.empty();
 
 				$.each(data.userList, function(index, user) {
@@ -32,6 +34,7 @@ $(document).ready(function() {
 				});
 
 				// 更新ボタンのクリックイベント
+				// 更新は各ユーザ単位につくので、この部分で書く必要アリ
 				$('.updateBtn').click(function() {
 					$('#userModal').fadeIn(); // モーダルを表示
 					const userModal = $('#userModal');
@@ -105,3 +108,9 @@ $(document).ready(function() {
 	// ページ読み込み時にユーザー一覧を取得
 	fetchUsers();
 });
+
+/*
+補足：jqueryで作成されたコンテンツに対して、すでに存在するイベントを登録することは不可能
+もしイベントを設定するのであれば、改めてイベントを設定し直す必要がある
+今回で言うと、ユーザ一覧取得時にupdateBtnの要素を追加するので、このupdateBtnに対するイベントを追加したければ、これ以降のタイミングで記述する必要がある
+*/
