@@ -34,7 +34,7 @@ $(document).ready(function() {
 				});
 
 				// 更新ボタンのクリックイベント
-				// 更新は各ユーザ単位につくので、この部分で書く必要アリ
+				// 更新はupdateBtnに紐づけるので、この部分で書く必要アリ（最下部に補足）
 				$('.updateBtn').click(function() {
 					$('#userModal').fadeIn(); // モーダルを表示
 					const userModal = $('#userModal');

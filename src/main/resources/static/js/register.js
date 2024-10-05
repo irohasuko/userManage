@@ -40,7 +40,7 @@ $(document).ready(function() {
 				data: JSON.stringify(userData), // JSON形式に変換
 				success: function(response) {
 					alert('ユーザを登録しました。');
-					// ここで追加の処理（例: フォームのクリア）を行うことができます
+					// 登録したらメイン画面に遷移
 					window.location.href = "/main";
 				},
 				error: function(jqXHR, textStatus, errorThrown) {

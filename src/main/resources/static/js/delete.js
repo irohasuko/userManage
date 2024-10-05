@@ -26,13 +26,13 @@ $(document).ready(function() {
 
 		// AJAXリクエストを使用してユーザを登録
 		$.ajax({
-			url: '/api/user/delete', // ユーザ登録用のAPIエンドポイント
+			url: '/api/user/delete', // ユーザ削除用のAPIエンドポイント
 			type: 'POST',
 			contentType: 'application/json',
 			data: JSON.stringify(usersToDelete), // JSON形式に変換
 			success: function(response) {
 				alert('ユーザを削除しました。');
-				// ここで追加の処理（例: フォームのクリア）を行うことができます
+				// 削除したらメイン画面に遷移
 				window.location.href = "/main";
 			},
 			error: function(jqXHR, textStatus, errorThrown) {

@@ -59,17 +59,17 @@ $(document).ready(function() {
 
 			// AJAXリクエストを使用してユーザを登録
 			$.ajax({
-				url: '/api/user-role', // ユーザ登録用のAPIエンドポイント
+				url: '/api/user-role', // ユーザ権限更新用のAPIエンドポイント
 				type: 'PUT',
 				contentType: 'application/json',
 				data: JSON.stringify(updateUserList), // JSON形式に変換
 				success: function(response) {
-					alert('ユーザを登録しました。');
-					// ここで追加の処理（例: フォームのクリア）を行うことができます
+					alert('ユーザ情報を更新しました。');
+					// 更新したらメイン画面に遷移
 					window.location.href = "/main";
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
-					alert('ユーザ登録に失敗しました。エラー: ' + textStatus);
+					alert('ユーザ更新に失敗しました。エラー: ' + textStatus);
 				}
 			});
 		});
