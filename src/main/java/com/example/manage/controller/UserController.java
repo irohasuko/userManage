@@ -36,36 +36,65 @@ public class UserController {
 	@Autowired
 	private DeleteUserService deleteUserService;
 
+	/**
+	 * ユーザ一覧取得API
+	 * @return
+	 */
 	@GetMapping("/user")
 	public ResponseEntity<BaseResponse> getUser() {
 		BaseResponse res = getUserService.getUserList();
 		return new ResponseEntity<>(res, null, res.getStatusCode());
 	}
 
+	/**
+	 * ユーザ登録API
+	 * @param user
+	 * @return
+	 */
 	@PostMapping("/user")
 	public ResponseEntity<BaseResponse> registerUser(@RequestBody UserRequest user) {
 		BaseResponse res = registerUserService.registerUser(user);
 		return new ResponseEntity<>(res, null, res.getStatusCode());
 	}
 
+	/**
+	 * ユーザ更新API
+	 * @param user
+	 * @return
+	 */
 	@PutMapping("/user")
 	public ResponseEntity<BaseResponse> updateUser(@RequestBody UserRequest user) {
 		BaseResponse res = updateUserService.updateUser(user);
 		return new ResponseEntity<>(res, null, res.getStatusCode());
 	}
 
+	/**
+	 * ユーザ削除API
+	 * @param userId
+	 * @return
+	 */
 	@DeleteMapping("/user")
 	public ResponseEntity<BaseResponse> deleteUser(@RequestParam int userId) {
 		BaseResponse res = deleteUserService.deleteUser(userId);
 		return new ResponseEntity<>(res, null, res.getStatusCode());
 	}
 
+	/**
+	 * ユーザ一括削除API
+	 * @param userList
+	 * @return
+	 */
 	@PostMapping("/user/delete")
 	public ResponseEntity<BaseResponse> deleteUsers(@RequestBody List<UserRequest> userList) {
 		BaseResponse res = deleteUserService.deleteUsers(userList);
 		return new ResponseEntity<>(res, null, res.getStatusCode());
 	}
 
+	/**
+	 * ユーザ権限一括変更API
+	 * @param userList
+	 * @return
+	 */
 	@PutMapping("/user-role")
 	public ResponseEntity<BaseResponse> updateUserRole(@RequestBody List<UserRequest> userList) {
 		BaseResponse res = updateUserService.updateUserRole(userList);
